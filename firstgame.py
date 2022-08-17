@@ -9,34 +9,34 @@ from pygame import mixer
 pygame.init()
 
 mixer.init()
-mixer.music.load('/Users/benisti/Desktop/Hackaton2/music.mp3')
+mixer.music.load('./music.mp3')
 mixer.music.play()
 screen_width,screen_height = 1024,736
 screen = pygame.display.set_mode((screen_width,screen_height))
 pygame.display.set_caption('Bestgame')
 clock=pygame.time.Clock()
-text_font=pygame.font.Font('/Users/benisti/Downloads/Dameron-Font (1)/dameron.ttf',50)
-test_surface = pygame.image.load('/Users/benisti/Desktop/map1.png')
+# text_font=pygame.font.Font('/Users/benisti/Downloads/Dameron-Font (1)/dameron.ttf',50)
+# test_surface = pygame.image.load('/Users/benisti/Desktop/map1.png')
 
-text_surface=text_font.render('Rivals', False, 'Red')
+# text_surface=text_font.render('Rivals', False, 'Red')
 
-score_rect=text_surface.get_rect(center = (300,50))
+# score_rect=text_surface.get_rect(center = (300,50))
 
 #Player 1 : Movement
-player_walk1 = pygame.image.load('/Users/benisti/Desktop/Hackaton2/Picture1.png').convert_alpha()
-player_walk2 = pygame.image.load('/Users/benisti/Desktop/Hackaton2/playerwalk2.png').convert_alpha()
-player_walk3 = pygame.image.load('/Users/benisti/Desktop/Hackaton2/playerwalk3.png').convert_alpha()
-player_walk4 = pygame.image.load('/Users/benisti/Desktop/Hackaton2/playerwalk4.png').convert_alpha()
-player_walk5 = pygame.image.load('/Users/benisti/Desktop/Hackaton2/playerwalk5.png').convert_alpha()
-player_walk6 = pygame.image.load('/Users/benisti/Desktop/Hackaton2/playerwalk6.png').convert_alpha()
-reverseChar = pygame.image.load('/Users/benisti/Desktop/Hackaton2/reverse1.png').convert_alpha()
-reverse2 = pygame.image.load('/Users/benisti/Desktop/Hackaton2/reverse2.png').convert_alpha()
-reverse3 = pygame.image.load('/Users/benisti/Desktop/Hackaton2/reverse3.png')
+player_walk1 = pygame.image.load('./Picture1.png').convert_alpha()
+player_walk2 = pygame.image.load('./playerwalk2.png').convert_alpha()
+player_walk3 = pygame.image.load('./playerwalk3.png').convert_alpha()
+player_walk4 = pygame.image.load('./playerwalk4.png').convert_alpha()
+player_walk5 = pygame.image.load('./playerwalk5.png').convert_alpha()
+player_walk6 = pygame.image.load('./playerwalk6.png').convert_alpha()
+reverseChar = pygame.image.load('./reverse1.png').convert_alpha()
+reverse2 = pygame.image.load('./reverse2.png').convert_alpha()
+reverse3 = pygame.image.load('./reverse3.png')
 player_reverse= [reverseChar,reverse2,reverse3]
 player_walk = [player_walk1,player_walk2,player_walk3,player_walk4,player_walk5,player_walk6]
 player_index = 0
 player_surf = player_walk[player_index]
-player_jump = pygame.image.load('/Users/benisti/Desktop/Hackaton2/playerjump.png').convert_alpha()
+player_jump = pygame.image.load('./playerjump.png').convert_alpha()
 player_rectangle = player_surf.get_rect(midbottom=(100,730))
 player_gravity = 0
 
@@ -67,12 +67,12 @@ moveLeftRightPlayer2 = 0
 moveLeftPlayer2= False
 moveRightPlayer2 = False
 
-enemy_surface= pygame.image.load('/Users/benisti/Desktop/Hackaton2/player2.png').convert_alpha()
-player2_walk1 = pygame.image.load('/Users/benisti/Desktop/Hackaton2/player2walk3.png').convert_alpha()
-reversep2 = pygame.image.load('/Users/benisti/Desktop/Hackaton2/reverseplayer2.png').convert_alpha()
-reversep2walk2 = pygame.image.load('/Users/benisti/Desktop/Hackaton2/reverseplayer2w2.png').convert_alpha()
-player2jumpright: pygame.image.load('/Users/benisti/Desktop/Hackaton2/p2jumpright.png').convert_alpha()
-player2jumpleft: pygame.image.load('/Users/benisti/Desktop/Hackaton2/p2jumpleft.png').convert_alpha()
+enemy_surface= pygame.image.load('./player2.png').convert_alpha()
+player2_walk1 = pygame.image.load('./player2walk3.png').convert_alpha()
+reversep2 = pygame.image.load('./reverseplayer2.png').convert_alpha()
+reversep2walk2 = pygame.image.load('./reverseplayer2w2.png').convert_alpha()
+player2jumpright: pygame.image.load('./p2jumpright.png').convert_alpha()
+player2jumpleft: pygame.image.load('./p2jumpleft.png').convert_alpha()
 
 p2w2 = [enemy_surface,player2_walk1]
 enemy_rect = enemy_surface.get_rect(midbottom =(850,760))
@@ -109,7 +109,7 @@ def player2_walk():
     global enemy_surface,enemy_index
 
     if enemy_rect.bottom<710:
-        enemy_surface=pygame.image.load('/Users/benisti/Desktop/Hackaton2/p2jumpleft.png').convert_alpha()
+        enemy_surface=pygame.image.load('./p2jumpleft.png').convert_alpha()
 
     else:
         enemy_index +=0.1
@@ -120,7 +120,7 @@ def reverseplayer2():
 
     global enemy_surface,enemy_index
     if enemy_rect.bottom<710:
-        enemy_surface=pygame.image.load('/Users/benisti/Desktop/Hackaton2/p2jumpright.png').convert_alpha()
+        enemy_surface=pygame.image.load('./p2jumpright.png').convert_alpha()
     else:
      if 0<1 :
         enemy_surface = reversep2walk2
@@ -178,7 +178,7 @@ group_player.add(player1)
 
 def display_gameoverP2():
     'Display the gameover window'
-    gameover_surf =test_surface
+    # gameover_surf =test_surface
     gameover_surf = pygame.Surface((1024,736))
      
     text1 = gameover_surf.fill((94, 129, 162))
@@ -186,18 +186,18 @@ def display_gameoverP2():
                 
     text2= gameover_surf.get_rect(topleft = (0,0))
      
-    messageGO=text_font.render('PLAYER 1 WON', False, 'Red')
+    # messageGO=text_font.render('PLAYER 1 WON', False, 'Red')
 
-    score_rect=messageGO.get_rect(center = (512,300))
-    test_surface.blit(gameover_surf,text2)
-    test_surface.blit(messageGO,score_rect)
+    # score_rect=messageGO.get_rect(center = (512,300))
+    # test_surface.blit(gameover_surf,text2)
+    # test_surface.blit(messageGO,score_rect)
 
 
 class Bullet(pygame.sprite.Sprite):
     def __init__(self,pos_x,pos_y):
         super().__init__()
         self.image = player_walk1
-        self.image =pygame.image.load('/Users/benisti/Downloads/bullet.png').convert_alpha()
+        # self.image =pygame.image.load('/Users/benisti/Downloads/bullet.png').convert_alpha()
         # self.image.fill((255,0,0))
         self.rect = self.image.get_rect(midright = (pos_x+145,pos_y+50))
         
@@ -272,7 +272,7 @@ group_player2.add(player2)
 
 def display_gameover():
      'Display the gameover window'
-     gameover_surf =test_surface
+    #  gameover_surf =test_surface
      gameover_surf = pygame.Surface((1024,736))
      
      text1 = gameover_surf.fill((94, 129, 162))
@@ -280,11 +280,11 @@ def display_gameover():
                 
      text2= gameover_surf.get_rect(topleft = (0,0))
      
-     messageGO=text_font.render('PLAYER 2 WON', False, 'Red')
+    #  messageGO=text_font.render('PLAYER 2 WON', False, 'Red')
 
-     score_rect=messageGO.get_rect(center = (512,300))
-     test_surface.blit(gameover_surf,text2)
-     test_surface.blit(messageGO,score_rect)
+    #  score_rect=messageGO.get_rect(center = (512,300))
+    #  test_surface.blit(gameover_surf,text2)
+    #  test_surface.blit(messageGO,score_rect)
     #  player_surf.blit(0,0)
 
 
@@ -294,7 +294,7 @@ class FireBall(pygame.sprite.Sprite):
     def __init__(self,pos_x,pos_y):
         super().__init__()
         self.image = enemy_surface
-        self.image =pygame.image.load('/Users/benisti/Desktop/Hackaton2/fireball.png').convert_alpha()
+        self.image =pygame.image.load('./fireball.png').convert_alpha()
         # self.image.fill((255,0,0))
         self.rect = self.image.get_rect(midleft = (pos_x-10,pos_y+60))
         
@@ -376,7 +376,7 @@ while True:
                
                 # player1.update()
                
-                enemy_surface = pygame.image.load('/Users/benisti/Desktop/Hackaton2/firecharacter.png').convert_alpha()
+                enemy_surface = pygame.image.load('./firecharacter.png').convert_alpha()
 
                 fireball.add(player2.createFire())
                 # player1.update()
@@ -404,12 +404,12 @@ while True:
 
             if event.key== pygame.K_RIGHT:
                 moveRightPlayer2 = False
-                enemy_surface = pygame.image.load('/Users/benisti/Desktop/Hackaton2/reverseplayer2.png').convert_alpha()
+                enemy_surface = pygame.image.load('./reverseplayer2.png').convert_alpha()
 
 
             if event.key== pygame.K_LEFT:
                 moveLeftPlayer2 = False
-                enemy_surface= pygame.image.load('/Users/benisti/Desktop/Hackaton2/player2.png').convert_alpha()
+                enemy_surface= pygame.image.load('./player2.png').convert_alpha()
         
     if  moveRight: 
         moveLeftRight +=8
@@ -433,8 +433,8 @@ while True:
        
 
                
-    screen.blit(test_surface,(0,0))
-    screen.blit(text_surface,(400,50))
+    # screen.blit(test_surface,(0,0))
+    # screen.blit(text_surface,(400,50))
     
  
     #player

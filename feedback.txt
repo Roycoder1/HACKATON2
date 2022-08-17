@@ -1,0 +1,14 @@
+
+
+Hello roy. I liked your project it is fun and nicely done.
+
+
+Some tips for other projects.:
+
+try to import you files and images in a way that is accesible for others when download your project.
+avoid to use local path to your computer and use absolute path to the project itself.
+Try to put the images, sounds and every extra file in order in to folders. 
+
+There is some files that you are using that are not even in this folder so part of your project is not working. like the images. or the fonts
+
+Still your code is well organized and well done. congratulation for your project and keep the good work
